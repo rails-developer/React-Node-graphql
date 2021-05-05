@@ -1,0 +1,18 @@
+type Query {
+  body(page: Int): data
+}
+
+type data {
+  count: String
+  next: String
+  previous: String
+  results: [person]
+}
+
+type person {
+  name: String
+  height: String
+  mass: String
+  gender: String
+  homeworld: String
+}
