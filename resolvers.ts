@@ -1,15 +1,18 @@
 import axios from "axios";
 
-const GetPersons = async (pageNumber) => {
+const GetPersons = async (params) => {
   let baseUrl = "https://swapi.dev/api/people";
-  if (pageNumber) {
-    baseUrl = "https://swapi.dev/api/people/?page=" + pageNumber;
+  if (params?.page) {
+    baseUrl = "https://swapi.dev/api/people/?page=" + params?.page;
+  }
+  if (params?.searchByName) {
+    baseUrl = "https://swapi.dev/api/people/?search=" + params?.searchByName;
   }
   return await axios.get(baseUrl).then((data) => data.data);
 };
 
 const Query = {
-  body: async (root, { page }, context) => await GetPersons(page),
+  body: async (root, params, context) => await GetPersons(params),
 };
 
 module.exports = { Query };

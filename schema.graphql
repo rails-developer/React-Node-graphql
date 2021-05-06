@@ -1,5 +1,5 @@
 type Query {
-  body(page: Int): data
+  body(page: Int, searchByName: String): data
 }
 
 type data {
