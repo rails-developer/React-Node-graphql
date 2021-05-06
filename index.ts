@@ -3,10 +3,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import fs from "fs";
 import { graphiqlExpress, graphqlExpress } from "apollo-server-express";
-
 import { makeExecutableSchema } from "graphql-tools";
-
-const resolvers = require("./resolvers");
+import * as resolvers from "./resolvers";
 
 const port = process.env.PORT || 9000;
 const app = express();
